@@ -37,6 +37,54 @@ body.dark .card {
 .hidden {
   display: none;
 }
+
+
+.about-page #themeToggle {
+  opacity: 0.0;
+  cursor: not-allowed;
+}
+
+
+
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem 1.2rem;
+  background: #0f172a;
+}
+
+
+.site-header img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+
+@media (max-width: 768px) {
+  .site-header img {
+    height: 32px;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .site-header img {
+    height: 28px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
 @keyframes spin {
   to {
     transform: rotate(360deg);

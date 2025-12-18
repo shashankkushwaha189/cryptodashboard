@@ -4,14 +4,21 @@ import {
   loadFavorites,
   usdToInr,
   initTheme,
-  toggleTheme,
+  toggleTheme
 } from "./utils.js";
+
+// Apply saved theme
+initTheme();
+
+// 🔹 EVENT DELEGATION (works even after header loads)
+document.addEventListener("click", (e) => {
+  if (e.target.id === "themeToggle") {
+    toggleTheme();
+  }
+});
 
 let chart;
 const chartCanvas = document.getElementById("priceChart");
-
-initTheme();
-document.getElementById("themeToggle").onclick = toggleTheme;
 
 const search = document.getElementById("search");
 const results = document.getElementById("results");
@@ -27,21 +34,13 @@ search.onkeypress = async (e) => {
       results.innerHTML = `
         <div class="card">
           <h2>${d.name} (${d.symbol.toUpperCase()})</h2>
-
-          <p class="price">
-            $${d.market_data.current_price.usd.toLocaleString()}
-          </p>
-
-          <p class="price-inr">
-            ₹${usdToInr(d.market_data.current_price.usd).toLocaleString()}
-          </p>
-
+          <p class="price">$${d.market_data.current_price.usd.toLocaleString()}</p>
+          <p class="price-inr">₹${usdToInr(d.market_data.current_price.usd)}</p>
           <p class="change ${
             d.market_data.price_change_percentage_24h > 0 ? "up" : "down"
           }">
             ${d.market_data.price_change_percentage_24h.toFixed(2)}%
           </p>
-
           <button id="f">⭐ Add to Favorites</button>
         </div>
       `;
@@ -68,29 +67,19 @@ const renderMovers = async () => {
   const s = [...d].sort(
     (a, b) => b.price_change_percentage_24h - a.price_change_percentage_24h
   );
+
   gainers.innerHTML = s
     .slice(0, 5)
-    .map(
-      (c) => `
-    <li class="up">
-      ${c.symbol.toUpperCase()} +${c.price_change_percentage_24h.toFixed(2)}%
-    </li>
-  `
-    )
+    .map((c) => `<li class="up">${c.symbol.toUpperCase()} +${c.price_change_percentage_24h.toFixed(2)}%</li>`)
     .join("");
 
   losers.innerHTML = s
     .slice(-5)
     .reverse()
-    .map(
-      (c) => `
-    <li class="down">
-      ${c.symbol.toUpperCase()} ${c.price_change_percentage_24h.toFixed(2)}%
-    </li>
-  `
-    )
+    .map((c) => `<li class="down">${c.symbol.toUpperCase()} ${c.price_change_percentage_24h.toFixed(2)}%</li>`)
     .join("");
 };
+
 renderFav();
 renderMovers();
 
@@ -109,18 +98,12 @@ async function renderChart(coin) {
           data: h.prices.map((p) => p[1]),
           borderColor: "#2563eb",
           backgroundColor: "rgba(37,99,235,0.1)",
-          borderWidth: 2,
           tension: 0.4,
           fill: true,
           pointRadius: 0,
         },
       ],
     },
-    options: {
-      responsive: true,
-      plugins: {
-        legend: { display: false },
-      },
-    },
+    options: { plugins: { legend: { display: false } } },
   });
 }

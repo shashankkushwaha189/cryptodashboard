@@ -1,0 +1,106 @@
+.about {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1.2rem 2rem;
+  background-color: #111827; /* dark card */
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.7;
+  color: #e5e7eb;
+}
+
+
+.about h1 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  color: #f9fafb;
+  text-align: center;
+}
+
+.about h2 {
+  font-size: 1.5rem;
+  margin-top: 1.8rem;
+  margin-bottom: 1rem;
+  color: #c7d2fe;
+  border-bottom: 2px solid #6366f1;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+
+.about p {
+  font-size: 1rem;
+  color: #d1d5db;
+  margin-bottom: 1rem;
+}
+
+
+.about ul {
+  list-style: disc inside;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+}
+
+.about ul li {
+  margin-bottom: 0.6rem;
+  color: #d1d5db;
+}
+
+
+.about strong {
+  color: #f9fafb;
+}
+
+
+.about a {
+  color: #818cf8;
+  text-decoration: none;
+}
+
+.about a:hover {
+  text-decoration: underline;
+  color: #a5b4fc;
+}
+
+
+
+@media screen and (max-width: 768px) {
+  .about {
+    padding: 1rem 1.2rem;
+    margin: 1rem;
+  }
+
+  .about h1 {
+    font-size: 1.8rem;
+  }
+
+  .about h2 {
+    font-size: 1.3rem;
+  }
+
+  .about p,
+  .about ul li {
+    font-size: 0.95rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .about {
+    padding: 0.8rem 1rem;
+    margin: 0.6rem;
+  }
+
+  .about h1 {
+    font-size: 1.5rem;
+  }
+
+  .about h2 {
+    font-size: 1.1rem;
+  }
+
+  .about p,
+  .about ul li {
+    font-size: 0.9rem;
+  }
+}
