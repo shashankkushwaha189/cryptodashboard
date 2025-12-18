@@ -1,0 +1,44 @@
+.site-header,
+.site-footer {
+  background: #111827;
+  color: #fff;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.site-header a {
+  color: #fff;
+  margin-left: 1rem;
+  text-decoration: none;
+}
+.toggle {
+  background: #2563eb;
+  padding: 0.4rem 0.8rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+body.dark {
+  background: #0f172a;
+  color: #e5e7eb;
+}
+body.dark .card {
+  background: #1e293b;
+}
+.loader {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #ddd;
+  border-top: 4px solid #2563eb;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: auto;
+}
+.hidden {
+  display: none;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

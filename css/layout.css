@@ -1,0 +1,53 @@
+.dashboard {
+  max-width: 900px;
+  margin: auto;
+  padding: 2rem;
+}
+.about {
+  max-width: 700px;
+  margin: auto;
+  padding: 2rem;
+}
+/* ===== Header Layout ===== */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+}
+
+/* Logo */
+.site-header .logo {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+/* Navigation */
+.site-header nav {
+  display: flex;
+  gap: 1.2rem;
+  margin-left: auto;
+}
+
+/* Dark Mode Toggle */
+.site-header .toggle {
+  margin-left: 1.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+/* Dark Mode Text Visibility */
+body.dark .site-header {
+  background: #020617;
+  color: #e5e7eb;
+}
+
+body.dark .site-header a {
+  color: #e5e7eb;
+}
+@media (max-width: 768px) {
+  .site-header .toggle {
+    font-size: 0.8rem; /* smaller text */
+    padding: 0.3rem 0.5rem;
+  }
+}
